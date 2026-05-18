@@ -164,13 +164,14 @@ namespace greenhome.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Plant plant)
         {
-            // TEMPERATURE
             plant.Temperature += " °C";
 
-            // SLUG
             plant.Slug = plant.LatinName
                 .ToLower()
                 .Replace(" ", "-");
+
+            ModelState.Remove("Slug");
+            ModelState.Remove("Category");
 
             if (ModelState.IsValid)
             {
@@ -178,16 +179,10 @@ namespace greenhome.Controllers
 
                 await _context.SaveChangesAsync();
 
-                ViewBag.Success =
+                TempData["Success"] =
                     "Растение успешно добавлено!";
 
-                // ОЧИЩАЕМ ФОРМУ
-                ModelState.Clear();
-
-                ViewBag.Categories =
-                    _context.Categories.ToList();
-
-                return View(new Plant());
+                return RedirectToAction(nameof(Create));
             }
 
             ViewBag.Categories =
