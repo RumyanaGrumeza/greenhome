@@ -1,0 +1,278 @@
+﻿@model greenhome.Models.Plant
+
+@{
+    ViewData["Title"] = "Добавить растение";
+}
+
+<link rel="stylesheet" href="~/css/create.css">
+
+<header class="header">
+
+    <div class="logo">
+
+        <img src="~/img/main/plant.png" alt="logo">
+
+        <div>
+            <h1>greenhome</h1>
+            <p>уход за комнатными растениями</p>
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <a asp-controller="Home"
+           asp-action="Index">
+
+            Главная
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Index">
+
+            Каталог
+
+        </a>
+
+    </nav>
+
+</header>
+
+<main class="form-page">
+
+    <div class="form-container">
+
+        <h1>Добавить растение</h1>
+
+        <form method="post">
+
+            <!-- NAME -->
+
+            <div class="field">
+
+                <label>Название</label>
+
+                <input id="name"
+                       asp-for="Name">
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- LATIN -->
+
+            <div class="field">
+
+                <label>Название на латыни</label>
+
+                <input id="latin"
+                       asp-for="LatinName">
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- DESCRIPTION -->
+
+            <div class="field">
+
+                <label>Описание</label>
+
+                <textarea asp-for="Description"></textarea>
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- SIZE -->
+
+            <div class="field">
+
+                <label>Размер</label>
+
+                <select asp-for="Size">
+
+                    <option value="">
+                        выбрать
+                    </option>
+
+                    <option value="small">
+                        маленький
+                    </option>
+
+                    <option value="medium">
+                        средний
+                    </option>
+
+                    <option value="large">
+                        большой
+                    </option>
+
+                </select>
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- WATERING -->
+
+            <div class="field">
+
+                <label>Полив</label>
+
+                <select asp-for="Watering">
+
+                    <option value="">
+                        выбрать
+                    </option>
+
+                    <option value="rare">
+                        редкий
+                    </option>
+
+                    <option value="medium">
+                        средний
+                    </option>
+
+                    <option value="frequent">
+                        частый
+                    </option>
+
+                </select>
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- LIGHT -->
+
+            <div class="field">
+
+                <label>Свет</label>
+
+                <select asp-for="Light">
+
+                    <option value="">
+                        выбрать
+                    </option>
+
+                    <option value="sun">
+                        светолюбивое
+                    </option>
+
+                    <option value="shade">
+                        тенелюбивое
+                    </option>
+
+                </select>
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- SOIL -->
+
+            <div class="field">
+
+                <label>Почва</label>
+
+                <input asp-for="Soil">
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- TEMPERATURE -->
+
+            <div class="field">
+
+                <label>Температура</label>
+
+                <div class="temp-row">
+
+                    <input id="temperature"
+                           asp-for="Temperature">
+
+                    <span>°C</span>
+
+                </div>
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- IMAGE -->
+
+            <div class="field">
+
+                <label>Ссылка на картинку</label>
+
+                <input id="image"
+                       asp-for="Image">
+
+                <div class="error"></div>
+
+            </div>
+
+            <!-- CATEGORY -->
+
+            <div class="field">
+
+                <label>Категория</label>
+
+                <select asp-for="CategoryId">
+
+                    <option value="">
+                        выбрать
+                    </option>
+
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.Id">
+
+                            @category.Name
+
+                        </option>
+                    }
+
+                </select>
+
+                <div class="error"></div>
+
+            </div>
+
+            <button id="submitBtn"
+                    type="submit"
+                    disabled>
+
+                Добавить
+
+            </button>
+
+        </form>
+
+    </div>
+
+</main>
+
+@if (TempData["Success"] != null)
+{
+    <div id="successModal" class="modal">
+
+        <div class="modal-content">
+
+            <p>
+                @TempData["Success"]
+            </p>
+
+            <button id="okBtn">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+}
+
+<script src="~/js/create.js"></script>

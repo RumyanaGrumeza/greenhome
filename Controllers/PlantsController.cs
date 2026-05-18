@@ -155,23 +155,43 @@ namespace greenhome.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories.ToList();
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(
-            [Bind("Id,Name,LatinName,Slug,Description,Size,Watering,Light,Soil,Temperature,Image,CategoryId")]
-            Plant plant)
+        public async Task<IActionResult> Create(Plant plant)
         {
+            // TEMPERATURE
+            plant.Temperature += " °C";
+
+            // SLUG
+            plant.Slug = plant.LatinName
+                .ToLower()
+                .Replace(" ", "-");
+
             if (ModelState.IsValid)
             {
-                _context.Add(plant);
+                _context.Plants.Add(plant);
 
                 await _context.SaveChangesAsync();
 
-                return RedirectToAction(nameof(Index));
+                ViewBag.Success =
+                    "Растение успешно добавлено!";
+
+                // ОЧИЩАЕМ ФОРМУ
+                ModelState.Clear();
+
+                ViewBag.Categories =
+                    _context.Categories.ToList();
+
+                return View(new Plant());
             }
+
+            ViewBag.Categories =
+                _context.Categories.ToList();
 
             return View(plant);
         }
@@ -197,41 +217,6 @@ namespace greenhome.Controllers
             return View(plant);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(
-            int? id,
-            [Bind("Id,Name,LatinName,Slug,Description,Size,Watering,Light,Soil,Temperature,Image,CategoryId")]
-            Plant plant)
-        {
-            if (id != plant.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(plant);
-
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PlantExists(plant.Id))
-                    {
-                        return NotFound();
-                    }
-
-                    throw;
-                }
-
-                return RedirectToAction(nameof(Index));
-            }
-
-            return View(plant);
-        }
 
         // =========================
         // DELETE

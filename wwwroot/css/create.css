@@ -1,0 +1,96 @@
+﻿body {
+    background: #f2eddc;
+    font-family: Arial, sans-serif;
+}
+
+.form-page {
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.form-container {
+    width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+    .field label {
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .field textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+.error {
+    min-height: 20px;
+    color: red;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.temp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    background: #8b9d67;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.error {
+    min-height: 18px;
+    color: #b42318;
+    font-size: 14px;
+    margin-top: 4px;
+}
