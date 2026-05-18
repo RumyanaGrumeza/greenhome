@@ -2,47 +2,12 @@
     ViewData["Title"] = "Главная";
 }
 
-<link rel="stylesheet" href="~/css/main.css">
+@section Styles {
 
-<header class="header">
+    <link rel="stylesheet"
+          href="~/css/main.css">
 
-    <div class="logo">
-
-        <img src="~/img/main/plant.png" alt="logo">
-
-        <div>
-            <h1>greenhome</h1>
-            <p>всё об уходе за комнатными растениями</p>
-        </div>
-
-    </div>
-
-    <nav class="nav">
-
-        <a asp-controller="Home"
-           asp-action="Index">
-
-            Главная
-
-        </a>
-
-        <a asp-controller="Plants"
-           asp-action="Index">
-
-            Каталог
-
-        </a>
-
-        <a asp-controller="Plants"
-           asp-action="Create">
-
-            Добавить растение
-
-        </a>
-
-    </nav>
-
-</header>
+}
 
 <main class="container">
 
@@ -126,17 +91,5 @@
     </section>
 
 </main>
-
-<footer class="footer">
-
-    <a href="#">
-        FAQ
-    </a>
-
-    <a href="#">
-        Контакты
-    </a>
-
-</footer>
 
 <script src="/js/carousel.js"></script>

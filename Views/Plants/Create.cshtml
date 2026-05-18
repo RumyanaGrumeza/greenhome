@@ -4,40 +4,12 @@
     ViewData["Title"] = "Добавить растение";
 }
 
-<link rel="stylesheet" href="~/css/create.css">
+@section Styles {
 
-<header class="header">
+    <link rel="stylesheet"
+          href="~/css/create.css">
 
-    <div class="logo">
-
-        <img src="~/img/main/plant.png" alt="logo">
-
-        <div>
-            <h1>greenhome</h1>
-            <p>уход за комнатными растениями</p>
-        </div>
-
-    </div>
-
-    <nav class="nav">
-
-        <a asp-controller="Home"
-           asp-action="Index">
-
-            Главная
-
-        </a>
-
-        <a asp-controller="Plants"
-           asp-action="Index">
-
-            Каталог
-
-        </a>
-
-    </nav>
-
-</header>
+}
 
 <main class="form-page">
 

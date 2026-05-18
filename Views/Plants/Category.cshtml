@@ -4,49 +4,12 @@
     ViewData["Title"] = ViewBag.CategoryName;
 }
 
-<link rel="stylesheet" href="~/css/catalog.css">
+@section Styles {
 
-<!-- HEADER -->
-<header class="header">
+    <link rel="stylesheet"
+          href="~/css/catalog.css">
 
-    <div class="logo">
-
-        <img src="~/img/main/plant.png" alt="logo">
-
-        <div>
-            <h1>greenhome</h1>
-            <p>уход за комнатными растениями</p>
-        </div>
-
-    </div>
-
-    <nav class="nav">
-
-        <a asp-controller="Home"
-           asp-action="Index">
-
-            Главная
-
-        </a>
-
-        <a asp-controller="Plants"
-           asp-action="Index">
-
-            Каталог
-
-        </a>
-
-        <a href="#">
-            Статьи
-        </a>
-
-        <a href="#">
-            Магазины
-        </a>
-
-    </nav>
-
-</header>
+}
 
 <!-- MAIN -->
 <main class="catalog-layout">
@@ -250,18 +213,5 @@
     </aside>
 
 </main>
-
-<!-- FOOTER -->
-<footer class="footer">
-
-    <a href="#">
-        FAQ
-    </a>
-
-    <a href="#">
-        Контакты
-    </a>
-
-</footer>
 
 <script src="~/js/category.js"></script>
