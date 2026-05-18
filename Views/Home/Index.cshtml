@@ -1,0 +1,142 @@
+﻿@{
+    ViewData["Title"] = "Главная";
+}
+
+<link rel="stylesheet" href="~/css/main.css">
+
+<header class="header">
+
+    <div class="logo">
+
+        <img src="~/img/main/plant.png" alt="logo">
+
+        <div>
+            <h1>greenhome</h1>
+            <p>всё об уходе за комнатными растениями</p>
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <a asp-controller="Home"
+           asp-action="Index">
+
+            Главная
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Index">
+
+            Каталог
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Create">
+
+            Добавить растение
+
+        </a>
+
+    </nav>
+
+</header>
+
+<main class="container">
+
+    <section class="intro">
+
+        <h1>
+            Узнайте всё об уходе
+            за комнатными растениями
+        </h1>
+
+        <h2>О проекте Greenhome</h2>
+
+        <p>
+            Greenhome — сервис,
+            посвящённый уходу
+            за комнатными растениями.
+        </p>
+
+        <h2>Каталог растений</h2>
+
+        <p>
+            Переходите в каталог
+            или выбирайте раздел
+            в карусели ниже.
+        </p>
+
+        <!-- CAROUSEL -->
+        <div class="carousel-wrapper">
+
+            <button class="carousel-btn" id="prev">
+                &#10094;
+            </button>
+
+            <div class="carousel-viewport">
+
+                <div class="carousel-track">
+
+                    <a class="carousel-item"
+                       asp-controller="Plants"
+                       asp-action="Category"
+                       asp-route-id="succulents">
+
+                        <img src="/img/main/succulent.jpg" alt="">
+
+                        <p>Суккуленты</p>
+
+                    </a>
+
+                    <a class="carousel-item"
+                       asp-controller="Plants"
+                       asp-action="Category"
+                       asp-route-id="cacti">
+
+                        <img src="/img/main/cactus.jpg" alt="">
+
+                        <p>Кактусы</p>
+
+                    </a>
+
+                    <a class="carousel-item"
+                       asp-controller="Plants"
+                       asp-action="Category"
+                       asp-route-id="orchids">
+
+                        <img src="/img/main/orchid.jpg" alt="">
+
+                        <p>Орхидеи</p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <button class="carousel-btn" id="next">
+                &#10095;
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+
+    <a href="#">
+        FAQ
+    </a>
+
+    <a href="#">
+        Контакты
+    </a>
+
+</footer>
+
+<script src="/js/carousel.js"></script>

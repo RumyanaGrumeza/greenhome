@@ -1,0 +1,263 @@
+﻿@model IEnumerable<greenhome.Models.Plant>
+
+@{
+    ViewData["Title"] = "Каталог";
+}
+
+<link rel="stylesheet" href="~/css/catalog.css">
+
+<!-- HEADER -->
+<header class="header">
+
+    <div class="logo">
+
+        <img src="~/img/main/plant.png" alt="logo">
+
+        <div>
+            <h1>greenhome</h1>
+            <p>уход за комнатными растениями</p>
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <a asp-controller="Home"
+           asp-action="Index">
+
+            Главная
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Index">
+
+            Каталог
+
+        </a>
+
+        <a href="#">
+            Статьи
+        </a>
+
+        <a href="#">
+            Магазины
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- MAIN -->
+<main class="catalog-layout">
+
+    <!-- FILTERS -->
+    <aside class="filters">
+
+        <h2>Фильтры</h2>
+
+        <!-- SIZE -->
+        <div class="filter-group">
+
+            <h3>Размер</h3>
+
+            <label>
+                <input type="radio"
+                       name="size"
+                       class="filter"
+                       value=""
+                       checked>
+
+                все
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="size"
+                       class="filter"
+                       value="small">
+
+                маленькие
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="size"
+                       class="filter"
+                       value="medium">
+
+                средние
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="size"
+                       class="filter"
+                       value="large">
+
+                большие
+            </label>
+
+        </div>
+
+        <!-- WATERING -->
+        <div class="filter-group">
+
+            <h3>Полив</h3>
+
+            <label>
+                <input type="radio"
+                       name="watering"
+                       class="filter"
+                       value=""
+                       checked>
+
+                все
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="watering"
+                       class="filter"
+                       value="rare">
+
+                редкий
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="watering"
+                       class="filter"
+                       value="medium">
+
+                средний
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="watering"
+                       class="filter"
+                       value="frequent">
+
+                частый
+            </label>
+
+        </div>
+
+        <!-- LIGHT -->
+        <div class="filter-group">
+
+            <h3>Свет</h3>
+
+            <label>
+                <input type="radio"
+                       name="light"
+                       class="filter"
+                       value=""
+                       checked>
+
+                все
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="light"
+                       class="filter"
+                       value="sun">
+
+                светолюбивые
+            </label>
+
+            <label>
+                <input type="radio"
+                       name="light"
+                       class="filter"
+                       value="shade">
+
+                тенелюбивые
+            </label>
+
+        </div>
+
+    </aside>
+
+    <!-- CATALOG -->
+    <section class="catalog-content">
+
+        <h1>Каталог растений</h1>
+
+        <div class="plant-grid">
+
+            @foreach (var plant in Model)
+            {
+                <a class="plant-card"
+                   asp-controller="Plants"
+                   asp-action="Details"
+                   asp-route-id="@plant.Id">
+
+                    <img src="~/img/plants/@plant.Image"
+                         alt="@plant.Name">
+
+                    <p>@plant.Name</p>
+
+                </a>
+            }
+
+        </div>
+
+    </section>
+
+    <!-- CATEGORIES -->
+    <aside class="categories">
+
+        <h2>Разделы</h2>
+
+        <a asp-controller="Plants"
+           asp-action="Index">
+
+            Все растения
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Category"
+           asp-route-id="succulents">
+
+            Суккуленты
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Category"
+           asp-route-id="cacti">
+
+            Кактусы
+
+        </a>
+
+        <a asp-controller="Plants"
+           asp-action="Category"
+           asp-route-id="orchids">
+
+            Орхидеи
+
+        </a>
+
+    </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <a href="#">
+        FAQ
+    </a>
+
+    <a href="#">
+        Контакты
+    </a>
+
+</footer>
+
+<script src="~/js/catalog.js"></script>
