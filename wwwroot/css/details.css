@@ -10,37 +10,6 @@ body {
     color: #2f2f2f;
 }
 
-/* HEADER */
-
-.header {
-    background: #8b9d67;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-    .logo img {
-        width: 50px;
-    }
-
-.nav {
-    display: flex;
-    gap: 20px;
-}
-
-    .nav a {
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-    }
-
 /* MAIN */
 
 .details-container {
@@ -90,19 +59,6 @@ body {
     margin-top: 10px;
     font-size: 18px;
 }
-
-.footer {
-    background: #8b9d67;
-    padding: 20px 5%;
-    margin-top: 40px;
-    display: flex;
-    gap: 20px;
-}
-
-    .footer a {
-        text-decoration: none;
-        color: black;
-    }
 
 /* MOBILE */
 

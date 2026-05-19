@@ -23,11 +23,11 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
     .logo img {
-        width: 50px;
+        width: 80px;
     }
 
     .logo h1 {
@@ -35,7 +35,7 @@ body {
     }
 
     .logo p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
 /* NAV */

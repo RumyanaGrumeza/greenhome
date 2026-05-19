@@ -13,45 +13,6 @@ body {
     flex-direction: column;
 }
 
-/* ================= HEADER ================= */
-
-.header {
-    background: #8b9d67;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    gap: 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-    .logo img {
-        width: 50px;
-    }
-
-    .logo h1 {
-        font-size: 28px;
-    }
-
-    .logo p {
-        font-size: 12px;
-    }
-
-.nav {
-    display: flex;
-    gap: 20px;
-}
-
-    .nav a {
-        text-decoration: none;
-        color: black;
-        font-weight: 500;
-    }
 
 /* ================= ОСНОВНОЙ LAYOUT ================= */
 
@@ -63,6 +24,10 @@ body {
     padding: 30px 5%;
 }
 
+.category-description {
+    margin-bottom: 20px;
+}
+
 /* ================= FILTERS ================= */
 
 .filters {
@@ -70,6 +35,8 @@ body {
     padding: 20px;
     border-radius: 12px;
     height: fit-content;
+    position: sticky;
+    top: 20px;
 }
 
     .filters h2 {
@@ -151,6 +118,8 @@ body {
     padding: 20px;
     border-radius: 12px;
     height: fit-content;
+    position: sticky;
+    top: 20px;
 }
 
     .categories h2 {
@@ -171,20 +140,6 @@ body {
             transform: translateX(3px);
         }
 
-/* ================= FOOTER ================= */
-
-.footer {
-    background: #8b9d67;
-    padding: 20px 5%;
-    display: flex;
-    gap: 20px;
-}
-
-    .footer a {
-        text-decoration: none;
-        color: black;
-        font-weight: 500;
-    }
 
 /* ================= ADAPTIVE ================= */
 
